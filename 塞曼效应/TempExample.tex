@@ -1,0 +1,244 @@
+%!xelatex = 'xelatex --halt-on-error %O %S'
+
+\documentclass{buaaemp}
+\begin{document}
+
+% 标题，作者
+\emptitle{塞曼效应}
+\empauthor{智朝晖}{张高龙}
+
+% 奇数页页眉 % 请在这里写出第一作者以及论文题目
+\fancyhead[CO]{{\footnotesize 智朝晖: 塞曼效应}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 关键词 摘要 首页脚注
+%%%%%%%%关键词
+\Keyword{塞曼效应，偏振光， FP干涉仪，荷质比， 磁矩量子化}
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+
+%%%%%%%%摘要
+\begin{empAbstract}
+塞曼效应有效地支持了光的电磁理论，同时也揭示了原子具有磁矩和空间量子化的现象。本文通过利用FP干涉仪观察横向塞曼效应和纵向塞曼效应的实验结果，体悟不同偏振光反映的物理实质，进而意识到背后的物理现象，同时测量电子的荷质比$e/m$。
+\end{empAbstract}
+
+%%%%%%%%首页角注，依次为实验时间、报告时间、学号、email
+\empfirstfoot{2022-09-27}{2022-9-28}{20377365}{20377365@buaa.edu.cn}
+\end{@twocolumnfalse}
+]
+%%%%%%%%！首页角注可能与正文重叠，请通过调整正文中第一页的\enlargethispage{-3.3cm}位置手动校准正文底部位置：
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  正文由此开始
+\wuhao 
+%  分栏开始
+
+\section{引~~言}
+19世纪伟大的物理学家法拉第研究电磁场对光的影响时，发现了磁场能改变偏振光的偏振方向。1896年荷兰物理学家塞曼(Pieter Zeeman)根据法拉第的想法，探测磁场对谱线的影响，发现钠双线在强磁场中的分裂。洛伦兹根据经典电子论解释了分裂为三条谱线的正常塞曼效应。由于研究这个效应，塞曼和洛伦兹共同获得了1902年的诺贝尔物理学奖。他们这一重要研究成就，有力地支持了光的电磁理论，使我们对物质的光谱、原子和分子的结构有了更多地了解。\cite{钱建强2016近代物理实验}
+
+\section{原~~理}
+当光源放在足够强的磁场中时，所发出的光谱线都分裂成几条，条数随能级的类别而不同，而分裂后的谱线是偏振的，这种现象被称为塞曼效应。塞曼效应证实了原子具有磁距和空间取向量子化的现象，至今塞曼效应仍是研究能级结构地重要方法之一。
+
+正常塞曼效应是指所发出的谱线分裂为三条，而且裂距(相邻两条子谱线间地波数差)正好等于一个洛伦兹单位($\frac{eB}{4\pi mc}$)的效应，可用经典理论给予很好地解释。但实际上大多数谱线的分裂多于三条，谱线的裂距是($\frac{eB}{4\pi mc}$)的简单分数倍，称反常塞曼效应，它不能用经典理论解释，只有用量子理论才能得到满意的解释。
+
+\subsection{原子的总磁矩与总动量矩的关系}
+在原子物理中我们知道，原子中的电子不但有轨道运动，而且还有自旋运动。因此，原子中的电子具有轨道角动量$P_L$和轨道磁矩$\mu_L$，以及自旋角动量$P_S$和自旋磁矩$\mu_S$。它们的关系为：
+\begin{align}
+\mu_L &= \frac{e}{2m}P_L & P_L &= \sqrt{L(L+1)}\hbar \notag \\
+\mu_S &= \frac{2}{m}P_S & P_S &= \sqrt{S(S+1)}\hbar\label{eq1}
+\end{align}
+式中L，S分别表示轨道量子数和自旋量子数，e，m分别为电子的电荷和质量。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.22\textwidth]{fig1.pdf}
+\caption{电子磁矩与角动量的关系}\label{fig1}
+\end{figure}
+
+原子核也有磁矩，但它比一个电子的磁矩要小三个数量级，故在计算单电子原子的磁矩时可以把原予核的磁矩忽略，只计算电子的磁矩。
+
+对于多电子原子，考虑到原子总角动量和总磁矩为零，故只对其原子外层价电子进行累加。磁矩的计算可用矢量图来进行，如图(\ref{fig1})。
+
+由(\ref{eq1})式知，$\mu_S$与$P_S$的比值比$\mu_L$与$P_L$的比值大一倍，所以合成的原子总磁矩不在总动量矩$P_J$的方向上。但由于$\mu$绕$P_J$运动，只有$\mu$在$P_J$方向的投影$\mu_J$对外平均效果不为零。根据图(\ref{fig1})进行向量叠加运算，有$\mu_J$与$P_J$的关系：
+
+\begin{equation*}
+\mu_J = g\frac{e}{2m}P_J
+\end{equation*}
+
+上式中的g就是朗德因子。对于LS耦合
+\begin{equation}
+g = 1+\frac{J(J+1)-L(L+1)+S(S+1)}{2J(J+1)}\label{eq2}
+\end{equation}
+它表征了原子的总磁矩与总角动量的关系，而且决定了能级在磁场中分裂的大小。
+
+\subsection{外磁场对原子能级作用}
+原子的总磁矩在外磁场中受到力矩$\mathbf{L}$的作用。
+\begin{equation}
+\mathbf{L} = \mu_{J} \times\mathbf{B} \label{eq3}
+\end{equation}
+
+力矩$\mathbf{L}$使总角动量发生旋进，角动量的改变的方向就是力矩的方向。原子受磁场作用而旋进所引起的附加能量$\Delta E$为：
+
+\begin{equation}
+\Delta E = -\mu_JB\cos\alpha = g\frac{e}{2m}P_J\cos\beta\label{eq4}
+\end{equation}
+其中角$\alpha$和$\beta$的意义如图(\ref{fig2})所示。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth]{fig2.pdf}
+\caption{原子总磁矩受磁场作用发生的旋进}\label{fig2}
+\end{figure}
+
+由于$\mu_J$或$P_J$在磁场中的取向是量子化的，也就是$P_J$在磁场方向的分量是量子化的，$P_J$的分量只能是$h$的整数倍。即
+
+\begin{equation}
+P_J\cos\beta = M\hbar\label{eq5}
+\end{equation}
+
+其中M称为磁量子数，M=J, (J-l), $\dots$ , -J，共有2J+1个M值。将(\ref{eq5})式代到(\ref{eq4})式可得
+\begin{equation}
+\Delta E = Mg\frac{e\hbar}{2m}B\label{eq6}
+\end{equation}
+
+这样，无外磁场时的一个能级，在外磁场的作用下可以分裂成2J+1个子能级。每个子能级的附加能量由(\ref{eq6})式决定，它正比于外磁场磁感应强度B和朗德因子g。
+
+\subsection{塞曼效应的选择定则}
+设谱线是由$E_1$和$E_2$两能级间跃迁产生的，此谱线的频率由
+\begin{equation} 
+h\nu = E_2 - E_1\label{eq7}
+\end{equation}
+确定。在外场作用下的能级$E_2$和$E_1$分别分裂为(2$J_2$+l)和(2$J_l$+l)个能级，附加能量分别是$\Delta E_2$和$\Delta E_1$，产生出新的谱线频率可由
+\begin{equation}
+h\nu^{'} = (E_2+\Delta E_2) - (E_1+\Delta E_1)\label{eq8}
+\end{equation}
+确定。分裂后谱线与原谱线的频率差为：
+\begin{equation}
+\begin{split}
+\Delta\nu &= \nu^{'} - \nu = \frac{\Delta E_2 - \Delta E_1}{h}\\
+&= (M_2g_2 - M_1g_1)\frac{e}{4\pi m}\label{eq9}
+\end{split}
+\end{equation}
+引入波数$\tilde{\nu}$，$\tilde{\nu} = \frac{\nu}{c} = \frac{1}{\lambda}$，用波数差来表示(\ref{eq9})式，有
+\begin{equation}
+\begin{split}
+\Delta\tilde{\nu} &= (M_2g_2 - M_1g_1)\frac{e}{4\pi mc}B\\
+&= (M_2g_2 - M_1g_1)L\\
+&= 4.67\times 10^{-5}(M_2g_2 - M_1g_1)B(\text{cm}^{-1})\label{eq10}
+\end{split}
+\end{equation}
+其中$L = \frac{e}{4\pi mc}$，称为洛伦兹单位，B以Gs为单位。
+
+跃迁必须满足以下选择定则：
+
+当M＝0，垂直于磁场方向可观察到$\pi$线，为光振动方向平行于磁场方向的线偏振光(当$\Delta$J=0，$M_2$=0$\to$M=0除外。如汞的435.8nm谱线就有此情况)。平行于磁场方向观察不到$\pi$线，即其强度为零。
+
+当M＝$\pm$1，垂直于磁场方向可观察到$\sigma$线，为光振动方向垂直于磁场的线偏振光。沿磁场方向观察时，$\Delta$M=1是以磁场方向为正向的右旋偏振光，$\Delta$M=$-$1是以磁场方向为正向的左旋偏振光。对观察者而言，顺着磁场方向观察和对着磁场方向观察，偏振光方向是相反的。
+
+
+\subsection{汞546.1nm谱线的塞曼分裂}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{mercury_spectrum.png}
+    \caption{汞原子的光谱图}
+    \label{fig:sepctrum}
+\end{figure}
+
+本实验的汞原子546.1nm谱线是由6s7s$^3$S$_1$跃迁到6s6p$^3$P$_2$产生的，由(\ref{eq10})式以及选择定则和偏振定则，可求出垂直于磁场观察时的塞曼分裂情况。
+\begin{table}[!h]
+\centering
+\caption{$^3\text{S}_1$和$^3\text{P}_2$能级的各项量子数值表}\label{table1}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+   & \multicolumn{3}{c|}{$^3\text{S}_1$} & \multicolumn{5}{c|}{$^3\text{P}_2$} \\ \hline
+L  & \multicolumn{3}{c|}{0}              & \multicolumn{5}{c|}{1}              \\ \hline
+S  & \multicolumn{3}{c|}{1}              & \multicolumn{5}{c|}{1}              \\ \hline
+J  & \multicolumn{3}{c|}{1}              & \multicolumn{5}{c|}{2}              \\ \hline
+g  & \multicolumn{3}{c|}{2}              & \multicolumn{5}{c|}{3/2}            \\ \hline
+M  & 1          & 0         & -1         & 2    & 1      & 0   & -1     & -2   \\ \hline
+Mg & 2          & 0         & -2         & 3    & 3/2    & 0   & -3/2   & -3   \\ \hline
+\end{tabular}
+\end{table}
+表(\ref{table1})列出了$^3\text{S}_1$和$^3\text{P}_2$能级的各量子数L，S，J，M，g与Mg的数值。
+
+因此，在外磁场的作用下，能级分裂情况及分裂谱线相对强度可用图(\ref{fig3})表示，图中，上面部分表示可能发生的跃迁，下面部分画出了分裂谱线的裂距与强度，将$\pi$成分画在水平线上，$\sigma$成分画在水平线下。可见汞546.1nm谱线分裂为9条等间距的谱线，相邻谱线间距都是$\frac{1}{2}$个洛伦兹单位。
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.4\textwidth]{fig3.pdf}
+\caption{能级分裂情况及谱线强度}\label{fig3}
+\end{figure}
+
+\enlargethispage{-3.3cm}
+
+\section{实验结果与分析}
+\subsection{横向塞曼效应}
+观察到汞原子的绿色谱线k级圆环和k-1级圆环都分裂成九条，此时是反常塞曼效应的九种跃迁谱线，包括 $\Delta M=0$时的$
+\pi$光  $\Delta M=1$时的 $\sigma_+$光 $\Delta M=1$时的 $\sigma_-$光 当旋转偏振片时变成六条，此时为$\sigma_+$光，$\sigma_-$光；或者三条的$
+\pi$光。并且偏振片每旋转90°时出现一次条纹变换。
+
+得到的数据如表\ref{tab:zeeman}, \ref{tab:radius}所示:
+\begin{table}[]
+    \centering
+    \begin{tabular}{cccccc}
+         0& 120 &212 &298 &28 &116 \\
+         0& 118 &210 &295 &28 &119
+    \end{tabular}
+    \caption{横向塞曼效应偏振片旋转角度}
+    \label{tab:zeeman}
+\end{table}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{ccccc}
+        start & 74 & 45& 41&82  \\
+        圈数 & 4圈+74-19 & 8圈+75 &  8圈+77-41 & 8圈+65+18 \\
+        D/mm & 9.1 & 16.6 & 15.89 & 16.02
+    \end{tabular}
+    \caption{距离以及换算得到圆环直径}
+    \label{tab:radius}
+\end{table}
+
+\subsection{纵向塞曼效应}
+观察到汞原子的绿色谱线k级圆环和k-1级圆环都分裂成六条，圆环间隔黑色加重，实际为$
+\pi$光叠加
+
+\subsection{测量电子荷质比$e/m$}
+最终得到 $D_k=9.1mm, D_{k-1}=16.6mm, D_a=15.89mm, D_b=16.02mm, B=11000GS$
+\begin{equation}
+    e/m=\frac{2 \pi c (D_a^2-D_b^2)}{(M_2 g_2-M_1 g_1)dB(D_{k-1}^2-D_{k}^2}
+\end{equation}
+带入得到 $e/m=1.836\times 10^{11} C/kg$，而理论值为 $e/m=1.76 \times 10^{11} C/kg$，故相对误差为40.3%
+\section{结~~论}
+本文通过利用FP干涉仪观察横向塞曼效应，发现观察到汞原子的绿色谱线k级圆环和k-1级圆环都分裂成九条，此时是反常塞曼效应的九种跃迁谱线，包括 $\Delta M=0$时的$
+\pi$光  $\Delta M=1$时的 $\sigma_+$光 $\Delta M=1$时的 $\sigma_-$光 当旋转偏振片时变成六条，此时为$\sigma_+$光，$\sigma_-$光；或者三条的$
+\pi$光。并且偏振片每旋转90°时出现一次条纹变换。观察纵向塞曼效应发现观察到汞原子的绿色谱线k级圆环和k-1级圆环都分裂成六条，圆环间隔黑色加重，实际为$
+\pi$光叠加，体悟不同偏振光反映的物理实质，进而意识到背后的物理现象，同时测量电子的荷质比$e/m=1.836\times 10^{11} C/kg$。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  参考文献
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  参考文献按GB/T 7714－2015《文后参考文献著录规则》的要求著录. 
+%  参考文献在正文中的引用方法：\cite{bib文件条目的第一行}
+
+\renewcommand\refname{\heiti\wuhao\centerline{参考文献}\global\def\refname{参考文献}}
+\vskip 12pt
+
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+}
+
+{
+\renewcommand{\baselinestretch}{0.9}
+\liuhao
+\bibliographystyle{gbt7714-numerical}
+\bibliography{./TempExample}
+}
+
+\end{document}
